@@ -12,6 +12,7 @@ public class Inimigo : MonoBehaviour
     public Main_player player;
     public Rigidbody2D rig;
     public enemy_animation animator;
+    public bool attacking = false;
 
     public int Direction { get => direction; set => direction = value; }
 
@@ -37,20 +38,24 @@ public class Inimigo : MonoBehaviour
     }
     private void destroy()
     {
-        Debug.Log("aa");
+
         Destroy(gameObject);
     }
 
     void Update()
     {
         rig.velocity = new Vector2(Direction * speed, rig.velocity.y);
-        
-        if (rig.velocity.x != 0)
+
+        if (!attacking)
         {
-            animator.play_animation("crabby_running");
-        } else
-        {
-            animator.play_animation("crabby_idle");
+            if (rig.velocity.x != 0)
+            {
+                animator.play_animation("crabby_running");
+            }
+            else
+            {
+                animator.play_animation("crabby_idle");
+            }
         }
     }
 
@@ -60,7 +65,7 @@ public class Inimigo : MonoBehaviour
         {
             if (collision.collider.tag == "Player")
             {
-                player.perdeVida(dano);
+                //player.perdeVida(dano);
                 enemy_knockback();
             }
         }
@@ -78,5 +83,27 @@ public class Inimigo : MonoBehaviour
     public void enemy_knockback()
     {
         rig.AddForce(knockback, ForceMode2D.Impulse); //if you don't want to take into consideration enemy's mass then use ForceMode.VelocityChange
+    }
+
+    public void attack()
+    {
+        attacking = true;
+        animator.play_animation("crabby_attack");
+        Invoke("stop_attacking", 0.5f);
+        speed = 1;
+    }
+
+    public void hurt_player()
+    {
+        Vector2 direction = (player.transform.position - gameObject.transform.position).normalized;
+        direction.y = 0;
+        player.perdeVida(dano, direction);
+    }
+        
+    public void stop_attacking()
+    {
+        attacking = false;
+        animator.play_animation("crabby_running");
+        speed = 3;
     }
 }

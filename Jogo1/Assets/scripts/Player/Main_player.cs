@@ -5,13 +5,15 @@ public class Main_player : MonoBehaviour
     // stats 
     [SerializeField] private int speed;
     [SerializeField] private int vida;
+    [SerializeField] private int life_max;
     [SerializeField] private int dano;
+    [SerializeField] private int coins;
 
     // pulo 
     public int jump_force;
     public bool segundo_pulo_up;
 
-    public Vector2Int knockback;
+    public float knockback;
     private bool _on_ground;
     private bool attacking;
     
@@ -26,7 +28,9 @@ public class Main_player : MonoBehaviour
     public Vector2 _direction;
     public Rigidbody2D rig;
     public Main_player player;
+    
     public bool On_ground { get => _on_ground; set => _on_ground = value; }
+    public bool Life_max { get => _on_ground; set => _on_ground = value; }
 
 
     // Start is called before the first frame update
@@ -93,10 +97,12 @@ public class Main_player : MonoBehaviour
         {
             player_animator.play_animation("player_attacking");
             attacking = true;
-            player_knockback();
+            //player_knockback();
+            //ui_manager.add_life();
             Invoke("stop_attack",0.4f);
         }
     }
+
     public void stop_attack()
     {
         attacking = false;
@@ -107,17 +113,24 @@ public class Main_player : MonoBehaviour
         inimigo.perdeVida(dano);
     }
 
-    public void perdeVida(int n)
+    public void perdeVida(int n, Vector2 direction_konckback)
     {
         vida -= n;
         dano += n;
         player_animator.play_animation("player_hit");
-        ui_manager.updateLife(vida);
-        player_knockback();
+        ui_manager.lose_life();
+        player_knockback(direction_konckback);
     }
 
-    public void player_knockback()
+    public void player_knockback(Vector2 direction_konckback)
     {
-        rig.AddForce(knockback, ForceMode2D.Impulse); //if you don't want to take into consideration enemy's mass then use ForceMode.VelocityChange
+        Debug.Log(direction_konckback);
+        rig.AddForce(direction_konckback * knockback, ForceMode2D.Impulse); //if you don't want to take into consideration enemy's mass then use ForceMode.VelocityChange
+    }
+
+    public void add_coin()
+    {
+        coins++;
+        ui_manager.add_coins(coins);
     }
 }
