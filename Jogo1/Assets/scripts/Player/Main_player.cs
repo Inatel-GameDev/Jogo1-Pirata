@@ -125,10 +125,12 @@ public class Main_player : MonoBehaviour
 
     public void perdeVida(int n, Vector2 direction_konckback)
     {
+        Debug.Log("Perdeu vida");
         vida -= n;
         ui_manager.lose_life();
-        
-        if(vida <= 0) {
+        ui_manager.add_swords(n);
+
+        if (vida <= 0) {
             killPlayer();
         } else {
             dano += n;
@@ -153,7 +155,7 @@ public class Main_player : MonoBehaviour
     public void player_knockback(Vector2 direction_konckback)
     {
         Debug.Log(direction_konckback);
-        rig.AddForce(direction_konckback * knockback, ForceMode2D.Impulse); //if you don't want to take into consideration enemy's mass then use ForceMode.VelocityChange
+        rig.AddForce(direction_konckback * knockback, ForceMode2D.Impulse); 
     }
 
     public void add_coin()

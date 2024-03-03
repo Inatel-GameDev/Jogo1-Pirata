@@ -59,17 +59,6 @@ public class Inimigo : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision != null)
-        {
-            if (collision.collider.tag == "Player")
-            {
-                //player.perdeVida(dano);
-                enemy_knockback();
-            }
-        }
-    }
 
     public void changeDirection(int d)
     {

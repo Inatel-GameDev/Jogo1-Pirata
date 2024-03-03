@@ -9,11 +9,13 @@ using UnityEngine.UI;
 public class UI_manager : MonoBehaviour
 {
     public Canvas canvas;
-    [SerializeField] private int life_bottles = 4;
+    [SerializeField] private int life_bottles;
     private int max_life_bottles = 8;
+    private int sword_total = 0;
     public GridLayoutGroup grid;
     public GameObject[] bottles;
     public TMP_Text textMeshPro_coin;
+    public TMP_Text textMeshPro_swords;
     public TMP_Text textMeshPro_death;
 
 
@@ -23,7 +25,6 @@ public class UI_manager : MonoBehaviour
         {
             bottles[i].gameObject.SetActive(false);
         }
-
     }
 
     public void add_life()
@@ -35,9 +36,15 @@ public class UI_manager : MonoBehaviour
     {
         textMeshPro_coin.text = n.ToString();
     }
+    public void add_swords(int n)
+    {
+        sword_total += n;
+        textMeshPro_swords.text = "x" + sword_total.ToString();
+    }
 
     public void lose_life()
     {
+        Debug.Log("Lose life");
         bottles[life_bottles].gameObject.SetActive(false);
         life_bottles--;
     }

@@ -20,6 +20,7 @@ public class trigger_check_for_attack : MonoBehaviour
             }
         }
     }
+
     private void cooldown_passed()
     {
         can_attack = true;
