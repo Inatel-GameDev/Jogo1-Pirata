@@ -20,6 +20,8 @@ public class Main_player : MonoBehaviour
     //ui
     public UI_manager ui_manager;
 
+    public GameManager game_manager;
+
 
     // animações 
     public Player_animation player_animator;
@@ -49,6 +51,14 @@ public class Main_player : MonoBehaviour
     {
         check_move();
         check_attack();
+        check_fall();
+    }
+    private void check_fall()
+    {
+        if (transform.position.y < -7)
+        {
+            killPlayer();
+        }
     }
 
     void check_move()
@@ -116,11 +126,29 @@ public class Main_player : MonoBehaviour
     public void perdeVida(int n, Vector2 direction_konckback)
     {
         vida -= n;
-        dano += n;
-        player_animator.play_animation("player_hit");
         ui_manager.lose_life();
-        player_knockback(direction_konckback);
+        
+        if(vida <= 0) {
+            killPlayer();
+        } else {
+            dano += n;
+            player_animator.play_animation("player_hit");
+            player_knockback(direction_konckback);
+        }   
     }
+
+    private void killPlayer()
+    {
+        ui_manager.activate_death_text();
+        Invoke("restart", 0.5f);
+        //player_animator.play_animation("player_dead");
+    }
+
+    private void restart()
+    {
+        game_manager.restartGame();
+    }
+
 
     public void player_knockback(Vector2 direction_konckback)
     {

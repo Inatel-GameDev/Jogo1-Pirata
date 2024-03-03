@@ -14,7 +14,8 @@ public class UI_manager : MonoBehaviour
     public GridLayoutGroup grid;
     public GameObject[] bottles;
     public TMP_Text textMeshPro_coin;
-    
+    public TMP_Text textMeshPro_death;
+
 
     private void Start()
     {  
@@ -39,6 +40,11 @@ public class UI_manager : MonoBehaviour
     {
         bottles[life_bottles].gameObject.SetActive(false);
         life_bottles--;
+    }
+
+    public void activate_death_text()
+    {
+        textMeshPro_death.gameObject.SetActive(true);
     }
 
     
