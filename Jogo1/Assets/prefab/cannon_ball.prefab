@@ -103,6 +103,7 @@ MonoBehaviour:
   speed: 10
   direction: -1
   dano: 5
+  player: {fileID: 0}
 --- !u!50 &7798016835377065979
 Rigidbody2D:
   serializedVersion: 4

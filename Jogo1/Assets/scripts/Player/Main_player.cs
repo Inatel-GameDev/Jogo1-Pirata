@@ -122,6 +122,10 @@ public class Main_player : MonoBehaviour
     public void attack(Inimigo inimigo){
         inimigo.perdeVida(dano);
     }
+    public void attack(cannon cannon)
+    {
+        cannon.perdeVida(dano);
+    }
 
     public void perdeVida(int n, Vector2 direction_konckback)
     {
