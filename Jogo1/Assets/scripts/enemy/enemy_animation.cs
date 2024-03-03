@@ -5,7 +5,7 @@ using UnityEngine;
 public class enemy_animation : MonoBehaviour
 {
     public Animator animator;
-    public Inimigo inimigo;
+    public Enemy inimigo;
     private string currentAnimation;
 
     public string CurrentAnimation { get => currentAnimation; set => currentAnimation = value; }
@@ -23,13 +23,13 @@ public class enemy_animation : MonoBehaviour
 
     }
 
-    public void check_direction()
+    public void invert_sprite_direction()
     {
-        if (inimigo.Direction < 0)
+        if (transform.rotation.y == 0)
         {
             transform.eulerAngles = new Vector2(0, 180);
         }
-        else if (inimigo.Direction > 0)
+        else 
         {
             transform.eulerAngles = new Vector2(0, 0);
         }

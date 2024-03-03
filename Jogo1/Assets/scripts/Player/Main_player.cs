@@ -119,7 +119,7 @@ public class Main_player : MonoBehaviour
         player_animator.play_animation("player_idle");
     }
     
-    public void attack(Inimigo inimigo){
+    public void attack(Enemy inimigo){
         inimigo.perdeVida(dano);
     }
     public void attack(cannon cannon)

@@ -5,7 +5,7 @@ using UnityEngine;
 public class trigger_check_attack : MonoBehaviour
 {
 
-    public Inimigo enemy;
+    public Enemy enemy;
     public float cooldown;
     public bool can_attack = true;
 

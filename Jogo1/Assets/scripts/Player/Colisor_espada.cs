@@ -11,7 +11,7 @@ public class Colisor_espada : MonoBehaviour
         if(collision != null)
         {
             if (collision.CompareTag("inimigo")){
-                player.attack(collision.GetComponent<Inimigo>());
+                player.attack(collision.GetComponent<Enemy>());
             
             } else if (collision.CompareTag("Trap")){
                 player.attack(collision.GetComponent<cannon>());

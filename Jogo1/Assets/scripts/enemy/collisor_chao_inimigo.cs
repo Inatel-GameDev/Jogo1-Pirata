@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class collisor_chao_inimigo : MonoBehaviour
 {
-    public Inimigo inimigo;
-    public int direction;
+    public Enemy inimigo;
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -13,7 +12,7 @@ public class collisor_chao_inimigo : MonoBehaviour
         {
             if (collision.CompareTag("chao"))
             {
-                inimigo.changeDirection(direction);
+                inimigo.changeDirection();
             }
         }
     }
