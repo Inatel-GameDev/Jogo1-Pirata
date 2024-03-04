@@ -6,6 +6,7 @@ public class Shark : Enemy
 {
     private void Start()
     {
+        speedInitial = speed;
         animator = GetComponent<enemy_animation>();
         animation_idle = "shark_idle";
         animation_running = "shark_run";
@@ -13,4 +14,5 @@ public class Shark : Enemy
         animation_hit = "shark_hit";
         animation_dead = "shark_dead";
     }
+
 }

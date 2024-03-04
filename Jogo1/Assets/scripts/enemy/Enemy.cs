@@ -4,6 +4,7 @@ public abstract class Enemy : MonoBehaviour
 {
     public int direction = 1;
     public int speed;
+    public int speedInitial;
     public int vida;
     public int dano;
     public Main_player player;
@@ -36,7 +37,7 @@ public abstract class Enemy : MonoBehaviour
     }
 
 
-    public  void attack()
+    public virtual void attack()
     {
         attacking = true;
         animator.play_animation(animation_attacking);
@@ -44,7 +45,7 @@ public abstract class Enemy : MonoBehaviour
         speed = 1;
     }
 
-    public void perdeVida(int n)
+    public virtual void perdeVida(int n)
     {
         vida -= n;
         if (vida <= 0)
@@ -59,11 +60,11 @@ public abstract class Enemy : MonoBehaviour
     }
 
 
-    private void stop_attacking()
+    public void stop_attacking()
     {
         attacking = false;
         animator.play_animation(animation_running);
-        speed = 3;
+        speed = speedInitial;
     }
 
 

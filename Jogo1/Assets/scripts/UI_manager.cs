@@ -42,11 +42,21 @@ public class UI_manager : MonoBehaviour
         textMeshPro_swords.text = "x" + sword_total.ToString();
     }
 
-    public void lose_life()
+    public void lose_life(int n)
     {
-        Debug.Log("Lose life");
-        bottles[life_bottles].gameObject.SetActive(false);
-        life_bottles--;
+        int aux = life_bottles - n;
+        for (int i = life_bottles; i > aux; i--)
+        {
+            if (i > -1)
+            {
+                bottles[life_bottles].gameObject.SetActive(false);
+                life_bottles--;
+            }
+            else
+            {
+                break;
+            }
+        }
     }
 
     public void activate_death_text()

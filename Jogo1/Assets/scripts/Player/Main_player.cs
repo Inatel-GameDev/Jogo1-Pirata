@@ -129,9 +129,8 @@ public class Main_player : MonoBehaviour
 
     public void perdeVida(int n, Vector2 direction_konckback)
     {
-        Debug.Log("Perdeu vida");
         vida -= n;
-        ui_manager.lose_life();
+        ui_manager.lose_life(n);
         ui_manager.add_swords(n);
 
         if (vida <= 0) {
