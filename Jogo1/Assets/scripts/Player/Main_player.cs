@@ -26,6 +26,9 @@ public class Main_player : MonoBehaviour
     //ui
     public UI_manager ui_manager;
 
+    // audio
+    public AudioSourcePlayer audio_player;
+
     // animações 
     public Player_animation player_animator;
 
@@ -69,22 +72,27 @@ public class Main_player : MonoBehaviour
         }
     }
 
+    void pulo()
+    {
+        rig.velocity = new Vector2(rig.velocity.x, jump_force);
+        player_animator.play_animation("player_jumping");
+        audio_player.playSound(audio_player.jump);
+    }
+
     void check_move()
     {
         rig.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rig.velocity.y);
         
         
         if(Input.GetKeyDown(KeyCode.Space) & On_ground)
-        { 
-            rig.velocity = new Vector2(rig.velocity.x, jump_force);
-            player_animator.play_animation("player_jumping");
+        {
+            pulo();
         }
 
         if (Input.GetKeyDown(KeyCode.Space) & !On_ground & segundo_pulo_up)
         {
-            rig.velocity = new Vector2(rig.velocity.x, jump_force);
             segundo_pulo_up = false;
-            player_animator.play_animation("player_jumping");
+            pulo();
         }
 
         if (!attacking)
@@ -114,6 +122,7 @@ public class Main_player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             player_animator.play_animation("player_attacking");
+            audio_player.playSound(audio_player.attack);
             attacking = true;
             //player_knockback();
             //ui_manager.add_life();
