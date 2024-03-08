@@ -7,16 +7,18 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
     public GameState State;    
+    public Main_player player;
+    public Canvas menu_pause;
 
     private void Awake()
     {
         Instance = this;
     }
 
+
     public void restartGame()
     {
-        Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void LoadScene(Scene scene)
@@ -24,23 +26,24 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(scene.ToString());
     }
 
-    public void LoadNewGame()
+    public void PauseGame()
     {
-        SceneManager.LoadScene(Scenes.Level_1.ToString());
+        State = GameState.Pause;
+        player.IsPaused = true;
+        Time.timeScale = 0f;
+        menu_pause.gameObject.SetActive(true);
     }
 
-    public void LoadNextScene()
+    public void ResumeGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        State = GameState.Action;
+        player.IsPaused = false;
+        Time.timeScale = 1f;
+        menu_pause.gameObject.SetActive(false);
     }
 
-    public void LoadMainMenu()
-    {
-        SceneManager.LoadScene(Scenes.Menu.ToString());
-    }
 
-
-    public enum Scenes
+    public enum Scene
     {
         Menu,
         Level_1,

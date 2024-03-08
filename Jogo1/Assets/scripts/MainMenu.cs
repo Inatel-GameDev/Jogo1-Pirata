@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] Button _newGame;
@@ -15,6 +16,6 @@ public class MainMenu : MonoBehaviour
 
     private void StartNewGame()
     {
-        GameManager.Instance.LoadNewGame();
+        GameManager.Instance.LoadScene(GameManager.Scene.Level_1);
     }
 }

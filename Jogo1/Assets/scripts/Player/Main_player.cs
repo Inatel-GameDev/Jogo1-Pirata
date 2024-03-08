@@ -9,47 +9,58 @@ public class Main_player : MonoBehaviour
     [SerializeField] private int dano;
     [SerializeField] private int coins;
 
-    // pulo 
-    public int jump_force;
-    public bool segundo_pulo_up;
+    // combate 
+    [SerializeField] private float knockback;
+    [SerializeField] private bool attacking;
 
-    public float knockback;
-    private bool _on_ground;
-    private bool attacking;
-    
+    // pulo 
+    [SerializeField] private int jump_force;
+    [SerializeField] public bool segundo_pulo_up;
+    [SerializeField] private bool _on_ground;
+
+    // movimento 
+    public Vector2 _direction;
+    public Rigidbody2D rig;
+    public Main_player player;
+
     //ui
     public UI_manager ui_manager;
 
     // animações 
     public Player_animation player_animator;
-    
-    // movimento 
-    public Vector2 _direction;
-    public Rigidbody2D rig;
-    public Main_player player;
-    
+
+    // GameState
+    public bool IsPaused = false;
+
+    // Getters e Setters
     public bool On_ground { get => _on_ground; set => _on_ground = value; }
     public bool Life_max { get => _on_ground; set => _on_ground = value; }
 
 
-    // Start is called before the first frame update
+
     void Start()
     {
         player = GetComponent<Main_player>();
         rig = GetComponent<Rigidbody2D>();
         player_animator = GetComponent<Player_animation>();
-        //ui_manager = GetComponent<UI_manager>();
         segundo_pulo_up = true;
-        //ui_manager.updateLife(vida);
     }
 
-    // Update is called once per frame
+    private void restart()
+    {
+        GameManager.Instance.restartGame();
+    }
+
+
     void Update()
     {
+        if(IsPaused) return;
         check_move();
         check_attack();
         check_fall();
+        check_pause();
     }
+
     private void check_fall()
     {
         if (transform.position.y < -7)
@@ -110,6 +121,14 @@ public class Main_player : MonoBehaviour
         }
     }
 
+    void check_pause()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameManager.Instance.PauseGame();
+        }
+    }
+
     public void stop_attack()
     {
         attacking = false;
@@ -123,6 +142,7 @@ public class Main_player : MonoBehaviour
     {
         cannon.perdeVida(dano);
     }
+
 
     public void perdeVida(int n, Vector2 direction_konckback)
     {
@@ -145,12 +165,6 @@ public class Main_player : MonoBehaviour
         Invoke("restart", 0.5f);
         //player_animator.play_animation("player_dead");
     }
-
-    private void restart()
-    {
-        GameManager.Instance.restartGame();
-    }
-
 
     public void player_knockback(Vector2 direction_konckback)
     {
