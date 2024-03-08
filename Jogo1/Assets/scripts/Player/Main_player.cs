@@ -20,9 +20,6 @@ public class Main_player : MonoBehaviour
     //ui
     public UI_manager ui_manager;
 
-    public GameManager game_manager;
-
-
     // animações 
     public Player_animation player_animator;
     
@@ -151,7 +148,7 @@ public class Main_player : MonoBehaviour
 
     private void restart()
     {
-        game_manager.restartGame();
+        GameManager.Instance.restartGame();
     }
 
 

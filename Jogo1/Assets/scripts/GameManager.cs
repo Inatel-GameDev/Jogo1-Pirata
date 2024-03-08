@@ -6,10 +6,12 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager Instance;
-    public GameState State;
+    public GameState State;    
 
-    public static event Action<GameState> OnGameStateChanged;
-
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     public void restartGame()
     {
@@ -17,44 +19,41 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(scene.name);
     }
 
-
-    private void Awake()
+    public void LoadScene(Scene scene)
     {
-        Instance = this;
-    }
-    private void Start()
-    {
-        updateGameState(GameState.Action);
+        SceneManager.LoadScene(scene.ToString());
     }
 
-    public void updateGameState(GameState newState)
+    public void LoadNewGame()
     {
-        State = newState;
-        switch (newState)
-        {
-            case GameState.Pause:
-                break;
-            case GameState.Dead:
-                break;
-            case GameState.Shop:
-                break;
-            case GameState.Action:
-                break;
-            case GameState.Victory:
-                break;
-            default:
-                break;
-        }
-        OnGameStateChanged?.Invoke(newState);
+        SceneManager.LoadScene(Scenes.Level_1.ToString());
     }
-}
+
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(Scenes.Menu.ToString());
+    }
+
+
+    public enum Scenes
+    {
+        Menu,
+        Level_1,
+        Level_2,
+    }
+
 
     public enum GameState
     {
         Pause,
         Action,
         Shop,
-        Dead,
-        Victory
+        Loading
     }
 
+}
