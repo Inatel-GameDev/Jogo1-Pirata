@@ -8,6 +8,8 @@ public class Main_player : MonoBehaviour
     [SerializeField] private int life_max;
     [SerializeField] private int dano;
     [SerializeField] private int coins;
+    [SerializeField] private float cooldown;
+    public bool can_attack = true;
 
     // combate 
     [SerializeField] private float knockback;
@@ -69,6 +71,7 @@ public class Main_player : MonoBehaviour
         if (transform.position.y < -7)
         {
             killPlayer();
+            
         }
     }
 
@@ -102,6 +105,7 @@ public class Main_player : MonoBehaviour
                 if (rig.velocity.x != 0)
                 {
                     player_animator.play_animation("player_running");
+                    audio_player.playSound(audio_player.footstep);
                 }
                 else
                 {
@@ -119,14 +123,14 @@ public class Main_player : MonoBehaviour
 
     void check_attack()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && can_attack)
         {
             player_animator.play_animation("player_attacking");
             audio_player.playSound(audio_player.attack);
             attacking = true;
             //player_knockback();
-            //ui_manager.add_life();
-            Invoke("stop_attack",0.4f);
+            Invoke("stop_attack",cooldown);
+            can_attack = false;
         }
     }
 
@@ -141,6 +145,7 @@ public class Main_player : MonoBehaviour
     public void stop_attack()
     {
         attacking = false;
+        can_attack = true;
         player_animator.play_animation("player_idle");
     }
     
@@ -158,6 +163,7 @@ public class Main_player : MonoBehaviour
         vida -= n;
         ui_manager.lose_life(n);
         ui_manager.add_swords(n);
+        
 
         if (vida <= 0) {
             killPlayer();
@@ -170,8 +176,9 @@ public class Main_player : MonoBehaviour
 
     private void killPlayer()
     {
+        audio_player.playSound(audio_player.lose);
         ui_manager.activate_death_text();
-        Invoke("restart", 0.5f);
+        Invoke("restart", 2f);
         //player_animator.play_animation("player_dead");
     }
 
@@ -185,5 +192,6 @@ public class Main_player : MonoBehaviour
     {
         coins++;
         ui_manager.add_coins(coins);
+        audio_player.playSound(audio_player.gold);
     }
 }

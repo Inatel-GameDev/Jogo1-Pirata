@@ -290,6 +290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: -1
   speed: 6
+  speedInitial: 0
   vida: 5
   dano: 3
   player: {fileID: 0}
@@ -302,6 +303,7 @@ MonoBehaviour:
   animation_attacking: 
   animation_hit: 
   animation_dead: 
+  jump: 0
 --- !u!114 &4070166263310819820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,7 +345,7 @@ Transform:
   m_GameObject: {fileID: 5100522321140475645}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.894, y: 0.144, z: 0.24198484}
+  m_LocalPosition: {x: -0.954, y: 0.273, z: 0.24198484}
   m_LocalScale: {x: 0.21496226, y: 2.9734771, z: 0.65825903}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -436,7 +438,7 @@ Transform:
   m_GameObject: {fileID: 8767135410827478926}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.758, y: -0.009, z: 0.24198484}
+  m_LocalPosition: {x: -1.093, y: 0.094, z: 0.24198484}
   m_LocalScale: {x: 1.1003424, y: 1.3001312, z: 1.6137403}
   m_ConstrainProportionsScale: 0
   m_Children: []

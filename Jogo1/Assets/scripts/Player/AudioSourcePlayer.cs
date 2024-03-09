@@ -7,6 +7,11 @@ public class AudioSourcePlayer : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip attack;
     public AudioClip jump;
+    public AudioClip footstep;
+    public AudioClip gold;
+    public AudioClip victory;
+    public AudioClip lose;
+    
 
 
 

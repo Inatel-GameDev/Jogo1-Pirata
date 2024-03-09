@@ -590,6 +590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cannon (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6738141255794205975, guid: 38d8f11a96dfa6545a5e31634299e2c7, type: 3}
+      propertyPath: tempo_limite
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8278992727552697176, guid: 38d8f11a96dfa6545a5e31634299e2c7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 250.82986
@@ -822,8 +826,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 329697372}
-  attack: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
-  jump: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
+  attack: {fileID: 8300000, guid: 5670af9d57279bf43a99ae5b88e39e1d, type: 3}
+  jump: {fileID: 8300000, guid: bcf438c283cf3c44798c6901a1216ccb, type: 3}
+  footstep: {fileID: 8300000, guid: 8cc1a0a48d8d5a84ea58b842651f1ec4, type: 3}
+  gold: {fileID: 8300000, guid: e88010e4b8e6e084a93ed50f219844ab, type: 3}
+  victory: {fileID: 8300000, guid: 0415fd95372ae6247bee8db6fdf9ad55, type: 3}
+  lose: {fileID: 8300000, guid: b87c79e40a92b0c438fb10f28bdca148, type: 3}
 --- !u!82 &329697372
 AudioSource:
   m_ObjectHideFlags: 0
@@ -834,8 +842,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -932,6 +940,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: moeda (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8176528932380927134, guid: 9db4df6832e53e64ba9755f28c8f4920, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 448751575}
     - target: {fileID: 8218531999459745419, guid: 9db4df6832e53e64ba9755f28c8f4920, type: 3}
       propertyPath: m_LocalPosition.x
       value: 245
@@ -1170,6 +1182,8 @@ MonoBehaviour:
   life_max: 8
   dano: 2
   coins: 0
+  cooldown: 0.5
+  can_attack: 1
   knockback: 50
   attacking: 0
   jump_force: 20
@@ -8695,6 +8709,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: moeda (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8176528932380927134, guid: 9db4df6832e53e64ba9755f28c8f4920, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 448751575}
     - target: {fileID: 8218531999459745419, guid: 9db4df6832e53e64ba9755f28c8f4920, type: 3}
       propertyPath: m_LocalPosition.x
       value: 249.5
@@ -8813,6 +8831,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: moeda (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8176528932380927134, guid: 9db4df6832e53e64ba9755f28c8f4920, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 448751575}
     - target: {fileID: 8218531999459745419, guid: 9db4df6832e53e64ba9755f28c8f4920, type: 3}
       propertyPath: m_LocalPosition.x
       value: 252.5
@@ -9059,8 +9081,8 @@ Transform:
   m_GameObject: {fileID: 749947354}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 69.66, y: -7.76, z: 20}
-  m_LocalScale: {x: 190.368, y: 1, z: 1}
+  m_LocalPosition: {x: 69.66, y: -9.7, z: 20}
+  m_LocalScale: {x: 190.368, y: 2.575, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1661068618}
@@ -10012,6 +10034,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: moeda (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8176528932380927134, guid: 9db4df6832e53e64ba9755f28c8f4920, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 448751575}
     - target: {fileID: 8218531999459745419, guid: 9db4df6832e53e64ba9755f28c8f4920, type: 3}
       propertyPath: m_LocalPosition.x
       value: 254
@@ -10562,6 +10588,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: moeda (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8176528932380927134, guid: 9db4df6832e53e64ba9755f28c8f4920, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 448751575}
     - target: {fileID: 8218531999459745419, guid: 9db4df6832e53e64ba9755f28c8f4920, type: 3}
       propertyPath: m_LocalPosition.x
       value: 251
@@ -10694,6 +10724,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: moeda (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8176528932380927134, guid: 9db4df6832e53e64ba9755f28c8f4920, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 448751575}
     - target: {fileID: 8218531999459745419, guid: 9db4df6832e53e64ba9755f28c8f4920, type: 3}
       propertyPath: m_LocalPosition.x
       value: 248
@@ -11326,7 +11360,7 @@ Transform:
   m_GameObject: {fileID: 1661068617}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 106.6, y: 0.40159658, z: 0.52362216}
+  m_LocalPosition: {x: 106.6, y: 4.3, z: 0.52362216}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11637,6 +11671,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: moeda (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8176528932380927134, guid: 9db4df6832e53e64ba9755f28c8f4920, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 448751575}
     - target: {fileID: 8218531999459745419, guid: 9db4df6832e53e64ba9755f28c8f4920, type: 3}
       propertyPath: m_LocalPosition.x
       value: 246.5
@@ -12693,11 +12731,11 @@ PrefabInstance:
       objectReference: {fileID: 448751575}
     - target: {fileID: 5165303453961344994, guid: aeffc2b0243d9c949a892406071e23d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 32.041576
+      value: 92.4
       objectReference: {fileID: 0}
     - target: {fileID: 5165303453961344994, guid: aeffc2b0243d9c949a892406071e23d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.41638154
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5165303453961344994, guid: aeffc2b0243d9c949a892406071e23d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12754,11 +12792,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3204132896484859018, guid: 7f2d5320bc6e8d644847a46a05e9f798, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 86.33
+      value: 30.9
       objectReference: {fileID: 0}
     - target: {fileID: 3204132896484859018, guid: 7f2d5320bc6e8d644847a46a05e9f798, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3204132896484859018, guid: 7f2d5320bc6e8d644847a46a05e9f798, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12795,6 +12833,10 @@ PrefabInstance:
     - target: {fileID: 3207690803227259788, guid: 7f2d5320bc6e8d644847a46a05e9f798, type: 3}
       propertyPath: dano
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3207690803227259788, guid: 7f2d5320bc6e8d644847a46a05e9f798, type: 3}
+      propertyPath: jump
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3207690803227259788, guid: 7f2d5320bc6e8d644847a46a05e9f798, type: 3}
       propertyPath: player

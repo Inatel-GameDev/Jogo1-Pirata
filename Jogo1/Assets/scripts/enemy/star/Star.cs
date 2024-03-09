@@ -23,6 +23,7 @@ public class Star : Enemy
         attacking = true;
         animator.play_animation(animation_attacking);
         speed = 10;
+        Invoke("stopAttacking",3);
     }
 
     public override void perdeVida(int n)
