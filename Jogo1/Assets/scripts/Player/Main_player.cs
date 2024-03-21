@@ -18,6 +18,7 @@ public class Main_player : MonoBehaviour
     // pulo 
     [SerializeField] private int jump_force;
     [SerializeField] public bool segundo_pulo_up;
+    [SerializeField] public int fall_maximum;
     [SerializeField] private bool _on_ground;
 
     // movimento 
@@ -68,7 +69,7 @@ public class Main_player : MonoBehaviour
 
     private void check_fall()
     {
-        if (transform.position.y < -7)
+        if (transform.position.y < - fall_maximum)
         {
             killPlayer();
             
