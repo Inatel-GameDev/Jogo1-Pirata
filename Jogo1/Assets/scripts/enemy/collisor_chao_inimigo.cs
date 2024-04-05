@@ -10,7 +10,17 @@ public class collisor_chao_inimigo : MonoBehaviour
     {
         if (collision != null)
         {
-            if (collision.CompareTag("chao"))
+            if (collision.CompareTag("chao") )
+            {
+                inimigo.changeDirection();
+            }
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision != null)
+        {
+            if (collision.CompareTag("parede"))
             {
                 inimigo.changeDirection();
             }

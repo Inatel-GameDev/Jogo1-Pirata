@@ -23,7 +23,7 @@ public class Star : Enemy
         attacking = true;
         animator.play_animation(animation_attacking);
         speed = 10;
-        Invoke("stopAttacking",3);
+        Invoke("stop_attacking",2.5f);
     }
 
     public override void perdeVida(int n)
@@ -51,6 +51,11 @@ public class Star : Enemy
                 can_attack = false;
                 Invoke("cooldown_passed", cooldown);
             }
+        }
+        if (collision.collider.tag == "inimigo")
+        {
+            changeDirection();
+            stop_attacking();
         }
     }
 

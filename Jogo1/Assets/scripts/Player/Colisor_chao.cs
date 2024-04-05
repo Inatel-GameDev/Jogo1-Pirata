@@ -12,7 +12,7 @@ public class Colisor_chao : MonoBehaviour
     {
         if (collision != null)
         {
-            if (collision.CompareTag("chao"))
+            if (collision.CompareTag("chao") || collision.CompareTag("Trap"))
             {
                 player.On_ground = true;
                 player.segundo_pulo_up = true;
@@ -25,7 +25,7 @@ public class Colisor_chao : MonoBehaviour
     {
         if (collision != null)
         {
-            if (collision.CompareTag("chao"))
+            if (collision.CompareTag("chao") || collision.CompareTag("Trap"))
             {
                 player.On_ground = false;
             }

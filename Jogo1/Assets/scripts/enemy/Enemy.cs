@@ -22,6 +22,11 @@ public abstract class Enemy : MonoBehaviour
     public string animation_dead;
 
 
+    private void Start()
+    {
+        player = FindObjectOfType<Main_player>();
+    }
+
     public void hurt_player()
     {
         Vector2 direction = (player.transform.position - gameObject.transform.position).normalized;
@@ -29,6 +34,13 @@ public abstract class Enemy : MonoBehaviour
         player.perdeVida(dano, direction);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.tag == "inimigo")
+        {
+            changeDirection();
+        }
+    }
 
     public  void changeDirection()
     {
@@ -60,7 +72,7 @@ public abstract class Enemy : MonoBehaviour
     }
 
 
-    public void stop_attacking()
+    public virtual void stop_attacking()
     {
         attacking = false;
         animator.play_animation(animation_running);

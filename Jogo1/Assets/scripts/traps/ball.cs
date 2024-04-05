@@ -13,7 +13,7 @@ public class Ball : MonoBehaviour
 
     private void Start()
     {
-        player = FindFirstObjectByType<Main_player>();
+        player = FindObjectOfType<Main_player>();
     }
 
     void FixedUpdate()

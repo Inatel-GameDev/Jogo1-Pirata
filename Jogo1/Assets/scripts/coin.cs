@@ -6,6 +6,12 @@ public class coin : MonoBehaviour
 {
     public Main_player player;
 
+    private void Start()
+    {
+        player = FindObjectOfType<Main_player>();
+
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision != null)

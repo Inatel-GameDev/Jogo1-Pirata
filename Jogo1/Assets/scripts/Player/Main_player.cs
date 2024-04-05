@@ -106,11 +106,12 @@ public class Main_player : MonoBehaviour
                 if (rig.velocity.x != 0)
                 {
                     player_animator.play_animation("player_running");
-                    audio_player.playSound(audio_player.footstep);
+                    audio_player.running();
                 }
                 else
                 {
                     player_animator.play_animation("player_idle");
+                    audio_player.stopSound();
                 }
             } else if (rig.velocity.y < 0)
                 {
@@ -194,5 +195,12 @@ public class Main_player : MonoBehaviour
         coins++;
         ui_manager.add_coins(coins);
         audio_player.playSound(audio_player.gold);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.tag == "spike")
+        {
+            killPlayer();
+        }
     }
 }
