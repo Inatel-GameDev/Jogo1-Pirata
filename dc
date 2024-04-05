@@ -1,0 +1,107 @@
+[33mcommit 736db87bcdd036195b8fa52049832fa0b32f7b36[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: dju4mota <fernandomotajunior2@gmail.com>
+Date:   Fri Apr 5 15:57:56 2024 -0300
+
+    criando novas fases e correcao de bugs menores
+
+[33mcommit c6e33942bd08f91a88bb3b11afba327da49e15bc[m
+Author: dju4mota <fernandomotajunior2@gmail.com>
+Date:   Thu Mar 21 00:05:14 2024 -0300
+
+    assets e level design
+
+[33mcommit 21aa760c580e42e9b954da98eb68e27258df51d1[m
+Author: dju4mota <fernandomotajunior2@gmail.com>
+Date:   Sat Mar 9 15:32:00 2024 -0300
+
+    Correções de bug e mais arquivos de audio
+
+[33mcommit ba32ad456943ea67a36381c4bcb6ea12d0ccb7fd[m
+Author: dju4mota <fernandomotajunior2@gmail.com>
+Date:   Fri Mar 8 20:01:19 2024 -0300
+
+    testes com audios
+
+[33mcommit 5a03b416c0fdb970be6ae58e435deebadcc02210[m
+Author: dju4mota <fernandomotajunior2@gmail.com>
+Date:   Fri Mar 8 19:10:10 2024 -0300
+
+    menus
+
+[33mcommit 36656d1faf5677045b0faaa2f01afccdb9714598[m
+Author: legolidia <fernando.b@ges.inatel.br>
+Date:   Fri Mar 8 17:10:05 2024 -0300
+
+    Tamo pausando agr krl
+
+[33mcommit fc527db24ff3d2278730dd7ffb835cb703ef3144[m
+Author: legolidia <fernando.b@ges.inatel.br>
+Date:   Fri Mar 8 01:33:46 2024 -0300
+
+    Game Manager
+
+[33mcommit 12f52cbb8b8cc85a6061af574526861cc6eab857[m
+Author: dju4mota <fernandomotajunior2@gmail.com>
+Date:   Wed Mar 6 22:38:59 2024 -0300
+
+    scene managent
+
+[33mcommit 22527a104fadd2d073ec3b5dc81085b1b5253bc6[m
+Author: legolidia <lidiacarolinaandrade@gmail.com>
+Date:   Sun Mar 3 21:58:06 2024 -0300
+
+    Terceiro Inimigo
+
+[33mcommit 5d6d304091f580fd13497085f7f5b6e4b786911d[m
+Author: legolidia <lidiacarolinaandrade@gmail.com>
+Date:   Sun Mar 3 19:56:18 2024 -0300
+
+    Novo inimigo e polimorfismo
+
+[33mcommit 7f4119cd88abe437b90041f7d7bea2a2ca943df7[m
+Author: legolidia <lidiacarolinaandrade@gmail.com>
+Date:   Sun Mar 3 18:21:07 2024 -0300
+
+    cannon full
+
+[33mcommit f077b533c5bf7815279a3a682343d4b8e1f3425a[m
+Author: legolidia <lidiacarolinaandrade@gmail.com>
+Date:   Sun Mar 3 16:22:15 2024 -0300
+
+    cannon shoot
+
+[33mcommit d54395f3028d4aef0dcc25e1e61555429846319f[m
+Author: legolidia <lidiacarolinaandrade@gmail.com>
+Date:   Sun Mar 3 15:17:26 2024 -0300
+
+    cenario de fundo e sprites de combate
+
+[33mcommit e6f2259b4d6cfa182dd434340ff7d2f8eec0aeef[m
+Author: dju4mota <fernandomotajunior2@gmail.com>
+Date:   Sun Mar 3 13:05:46 2024 -0300
+
+    Sprites
+
+[33mcommit 6c55e7b1b1c96716ad4e4d00728bb4cf80a60220[m
+Author: dju4mota <fernandomotajunior2@gmail.com>
+Date:   Fri Mar 1 18:42:14 2024 -0300
+
+    tentando arrumar o git
+
+[33mcommit 8a612b88d4fe7ba9c0ee38eab42ba5ecdefb99c4[m
+Author: dju4mota <fernandomotajunior2@gmail.com>
+Date:   Fri Feb 23 20:28:27 2024 -0300
+
+    Relatorio
+
+[33mcommit df70466173b27fe9aaba791ad4dc425e0834793c[m
+Author: dju4mota <fernandomotajunior2@gmail.com>
+Date:   Fri Feb 23 20:18:09 2024 -0300
+
+    commit inicial
+
+[33mcommit 829f1cb7e6fae74ff7dcb11e4dee62c7eab23171[m
+Author: dju4mota <fernando.b@ges.inatel.br>
+Date:   Fri Feb 23 19:58:43 2024 -0300
+
+    Initial commit

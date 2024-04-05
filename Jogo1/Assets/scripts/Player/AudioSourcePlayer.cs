@@ -11,9 +11,8 @@ public class AudioSourcePlayer : MonoBehaviour
     public AudioClip gold;
     public AudioClip victory;
     public AudioClip lose;
+    private bool run = false;
     
-
-
 
     public void playSound(AudioClip clip)
     {
@@ -24,6 +23,8 @@ public class AudioSourcePlayer : MonoBehaviour
 
     public void running()
     {
+        if (run) return;
+        run = true;
         audioSource.loop = true;
         audioSource.clip = footstep;
         audioSource.Play();
@@ -31,6 +32,7 @@ public class AudioSourcePlayer : MonoBehaviour
 
     public void stopSound()
     {
+        run = false;
         audioSource.loop = false;
         audioSource.Stop();
     }

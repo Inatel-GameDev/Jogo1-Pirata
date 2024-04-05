@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
         Menu,
         Level_1,
         Level_2,
+        Level_3,
     }
 
 

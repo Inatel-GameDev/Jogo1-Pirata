@@ -60,7 +60,10 @@ public class Main_player : MonoBehaviour
 
     void Update()
     {
-        if(IsPaused) return;
+        if (IsPaused) {
+            rig.velocity = new Vector2(0,0);
+            return;
+        }
         check_move();
         check_attack();
         check_fall();
@@ -172,16 +175,23 @@ public class Main_player : MonoBehaviour
         } else {
             dano += n;
             player_animator.play_animation("player_hit");
-            player_knockback(direction_konckback);
+            Invoke("resetaAnimacao",0.5f);
+            //player_knockback(direction_konckback);
         }   
+    }
+    private void resetaAnimacao()
+    {
+        player_animator.play_animation("player_idle");
     }
 
     private void killPlayer()
     {
+        IsPaused = true;
+        player_animator.play_animation("player_dead");
         audio_player.playSound(audio_player.lose);
         ui_manager.activate_death_text();
-        Invoke("restart", 2f);
-        //player_animator.play_animation("player_dead");
+        Invoke("restart", 3.5f);
+        
     }
 
     public void player_knockback(Vector2 direction_konckback)
