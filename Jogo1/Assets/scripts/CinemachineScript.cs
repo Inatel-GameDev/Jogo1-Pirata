@@ -3,14 +3,6 @@ using UnityEngine;
 
 public class CinemachineScript : MonoBehaviour
 {
-    [SerializeField] CinemachineVirtualCamera cam;
-    [SerializeField] CinemachineFramingTransposer framing;
-    bool inverted = false;
-
-    void Start()
-    {
-        framing = cam.GetCinemachineComponent<CinemachineFramingTransposer>();
-    }
     
     void Update()
     {/*
