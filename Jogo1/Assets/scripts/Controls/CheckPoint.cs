@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class shipHelm : MonoBehaviour
+public class CheckPoint : MonoBehaviour
 {
     [SerializeField] public GameManager.Scene nextLevel;
 

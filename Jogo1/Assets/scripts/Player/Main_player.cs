@@ -60,22 +60,22 @@ public class Main_player : MonoBehaviour
 
     void Update()
     {
-        if (IsPaused) {
-            rig.velocity = new Vector2(0,0);
+        if (IsPaused)
+        {
+            rig.velocity = new Vector2(0, 0);
             return;
         }
         check_move();
         check_attack();
         check_fall();
-        check_pause();
     }
 
     private void check_fall()
     {
-        if (transform.position.y < - fall_maximum)
+        if (transform.position.y < -fall_maximum)
         {
             killPlayer();
-            
+
         }
     }
 
@@ -89,9 +89,9 @@ public class Main_player : MonoBehaviour
     void check_move()
     {
         rig.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rig.velocity.y);
-        
-        
-        if(Input.GetKeyDown(KeyCode.Space) & On_ground)
+
+
+        if (Input.GetKeyDown(KeyCode.Space) & On_ground)
         {
             pulo();
         }
@@ -104,7 +104,7 @@ public class Main_player : MonoBehaviour
 
         if (!attacking)
         {
-            if(On_ground)
+            if (On_ground)
             {
                 if (rig.velocity.x != 0)
                 {
@@ -116,8 +116,9 @@ public class Main_player : MonoBehaviour
                     player_animator.play_animation("player_idle");
                     audio_player.stopSound();
                 }
-            } else if (rig.velocity.y < 0)
-                {
+            }
+            else if (rig.velocity.y < 0)
+            {
                 player_animator.play_animation("player_falling");
             }
         }
@@ -134,12 +135,12 @@ public class Main_player : MonoBehaviour
             audio_player.playSound(audio_player.attack);
             attacking = true;
             //player_knockback();
-            Invoke("stop_attack",cooldown);
+            Invoke("stop_attack", cooldown);
             can_attack = false;
         }
     }
 
-    void check_pause()
+    public void Pause()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -153,8 +154,9 @@ public class Main_player : MonoBehaviour
         can_attack = true;
         player_animator.play_animation("player_idle");
     }
-    
-    public void attack(Enemy inimigo){
+
+    public void attack(Enemy inimigo)
+    {
         inimigo.perdeVida(dano);
     }
     public void attack(cannon cannon)
@@ -168,16 +170,19 @@ public class Main_player : MonoBehaviour
         vida -= n;
         ui_manager.lose_life(n);
         ui_manager.add_swords(n);
-        
 
-        if (vida <= 0) {
+
+        if (vida <= 0)
+        {
             killPlayer();
-        } else {
+        }
+        else
+        {
             dano += n;
             player_animator.play_animation("player_hit");
-            Invoke("resetaAnimacao",0.5f);
+            Invoke("resetaAnimacao", 0.5f);
             //player_knockback(direction_konckback);
-        }   
+        }
     }
     private void resetaAnimacao()
     {
@@ -191,13 +196,13 @@ public class Main_player : MonoBehaviour
         audio_player.playSound(audio_player.lose);
         ui_manager.activate_death_text();
         Invoke("restart", 3.5f);
-        
+
     }
 
     public void player_knockback(Vector2 direction_konckback)
     {
         Debug.Log(direction_konckback);
-        rig.AddForce(direction_konckback * knockback, ForceMode2D.Impulse); 
+        rig.AddForce(direction_konckback * knockback, ForceMode2D.Impulse);
     }
 
     public void add_coin()
@@ -206,11 +211,20 @@ public class Main_player : MonoBehaviour
         ui_manager.add_coins(coins);
         audio_player.playSound(audio_player.gold);
     }
+
+    // collisions 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag == "spike")
+        Debug.Log(collision.collider.tag);
+        switch (collision.collider.tag)
         {
-            killPlayer();
+            case "spike":
+                killPlayer();
+                break;
+            case "Coin":
+                add_coin();
+                Destroy(collision.gameObject);                
+                break;
         }
     }
 }
